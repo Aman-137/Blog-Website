@@ -21,11 +21,19 @@ app.get("/", function(req, res) {
   res.render("home", {startingContent: homeStartingContent});
 });
 
+app.get("/about", function(req, res) {
+  res.render("about", {aboutPageContent: aboutContent});
+});
+
+app.get("/contact", function(req, res) {
+  res.render("contact", {contactPageContent: contactContent});
+});
+
+app.get("/compose", function(req, res) {
+  res.render("compose");
+});
 
 
-app.post("/", function(req, res) {
-  res.send()
-})
 
 
 

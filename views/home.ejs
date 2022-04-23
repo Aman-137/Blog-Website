@@ -6,5 +6,10 @@
 
 <% console.log(posts); %>
 
+<% posts.forEach(function(post) { %>
+  <% console.log(post.title); %>
+<% }); %>
+
+
 
 <%- include('partials/footer'); -%>

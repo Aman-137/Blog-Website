@@ -13,7 +13,9 @@ const app = express();
 
 app.set('view engine', 'ejs');
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(express.static("public"));
 
 let posts = [];
@@ -27,11 +29,15 @@ app.get("/", function(req, res) {
 });
 
 app.get("/about", function(req, res) {
-  res.render("about", {aboutPageContent: aboutContent});
+  res.render("about", {
+    aboutPageContent: aboutContent
+  });
 });
 
 app.get("/contact", function(req, res) {
-  res.render("contact", {contactPageContent: contactContent});
+  res.render("contact", {
+    contactPageContent: contactContent
+  });
 });
 
 app.get("/compose", function(req, res) {
@@ -58,9 +64,10 @@ app.get("/posts/:postName", function(req, res) {
     const storedTitle = _.lowerCase(post.title);
 
     if (storedTitle === requestedTitle) {
-      console.log("Match found!");
-    } else {
-      console.log("Not a Match");
+      res.render("post", {
+        title: post.title,
+        content: post.content
+      });
     }
   });
 });
